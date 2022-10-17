@@ -98,6 +98,7 @@ void uri_entered_cb (GtkWidget* entry, gpointer data) {
   if(data == NULL) {	
     return;
   }
+  printf("hello"); 
 
   // Get the tab (hint: wrapper.h)
 
