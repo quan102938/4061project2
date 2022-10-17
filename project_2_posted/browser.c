@@ -240,7 +240,7 @@ void new_tab_created_cb (GtkButton *button, gpointer data)
   }
   else if (TABS[tab_index].pid == 0)
   { 
-    char exec_args[sizeof(int)*4]; // "tab_index comm[tab_index].in/outbound[0/1] x 4"
+    char exec_args[sizeof(int)*5]; // "tab_index comm[tab_index].in/outbound[0/1] x 4"
     sprintf(exec_args,"%d %d %d %d %d",tab_index, comm[tab_index].inbound[0],
       comm[tab_index].inbound[1], comm[tab_index].outbound[0], comm[tab_index].outbound[1]);
     execl("./render", "render", exec_args, NULL);    //render the url
@@ -355,6 +355,8 @@ int main(int argc, char **argv)
 
   init_tabs ();
   // init blacklist (see util.h), and favorites (write this, see above)
+
+  // make sure favorites and blacklist are initialized
 
   init_blacklist("./.blacklist");
 
