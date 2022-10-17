@@ -15,8 +15,8 @@
 // Tab/controller read from outbound, write to inbound
 typedef struct comm_channel
 {
-  int		inbound[2];  
-  int		outbound[2];
+  int		inbound[2];  //controller talks to tab by writing to inbound[1], tab reads from inbound[0]   
+  int		outbound[2]; //tab talks to controller by writing to outbound[1], controller reads from outbound[0]
 } comm_channel;
 
 // type of commands/messages
